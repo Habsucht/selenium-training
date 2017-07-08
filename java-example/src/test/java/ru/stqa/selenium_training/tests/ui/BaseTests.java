@@ -16,7 +16,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTests {
-    WebDriver wd;
+    static WebDriver wd;
     String browser;
 
 
@@ -47,7 +47,7 @@ public class BaseTests {
                 wd = new InternetExplorerDriver();
                 break;
         }
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @After
