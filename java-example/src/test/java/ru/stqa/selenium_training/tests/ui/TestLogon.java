@@ -12,10 +12,10 @@ public class TestLogon extends BaseTests{
 
     @Test
     public void TestLogon() {
-        logon();
+        logonAdmin();
     }
 
-    static void logon() {
+    static void logonAdmin() {
         wd.get("http://localhost/litecart/admin/login.php");
         wd.findElement(By.name("username")).click();
         wd.findElement(By.name("username")).clear();
