@@ -11,16 +11,16 @@ public class CheckSticks extends BaseTests{
     public void CheckSticks() {
         wd.get("http://localhost/litecart/");
 
-        List<WebElement> productList = wd.findElements(By.xpath("//li[@class='product column shadow hover-light']"));
+        List<WebElement> productList = wd.findElements(By.cssSelector(".product"));
 
         for (WebElement element : productList) {
 
             System.out.println("Товар: " + element.findElement(By.className("name")).getText());
 
-            List<WebElement> sticksList = element.findElements(By.cssSelector("[class *= sticker]"));
+            List<WebElement> sticksList = element.findElements(By.cssSelector(".sticker"));
 
             if (sticksList.size() == 1) {
-                System.out.println("У товара один стикер \"" + element.findElement(By.cssSelector("[class *= sticker]")).getText() + "\" - check");
+                System.out.println("У товара один стикер \"" + element.findElement(By.cssSelector(".sticker")).getText() + "\" - check");
             } else if (sticksList.size() == 0) {
                 System.out.println("У товара нет стикера - error");
             } else if (sticksList.size() > 1) {
@@ -29,5 +29,4 @@ public class CheckSticks extends BaseTests{
         }
     }
 }
-
 
