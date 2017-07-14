@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CheckSortCountries extends BaseTests {
+public class CheckSort extends BaseTests {
 
     @Test
     public void CheckSortCountries() {
@@ -30,13 +30,13 @@ public class CheckSortCountries extends BaseTests {
 
             System.out.println(countries.get(i).findElement(By.xpath("//td[5]")).getText());
 
-//            try {
-//                if (Integer.parseInt(countries.get(i).findElement(By.xpath("//td[3]")).getText()) > 0) {
-//                    multiZoneCountry.add(countries.get(i).findElement(By.xpath("a")).getAttribute("href"));
-//                }
-//            } catch (ClassCastException ex) {
-//                System.out.println("Неверные данные в поле - error");
-//            }
+            try {
+                if (Integer.parseInt(countries.get(i).findElement(By.xpath("//td[7]")).getText()) > 0) {
+                    multiZoneCountry.add(countries.get(i).findElement(By.xpath("a")).getAttribute("href"));
+                }
+            } catch (ClassCastException ex) {
+                System.out.println("Неверные данные в поле - error");
+            }
         }
 
         Collections.sort(sortedCountriesList);
@@ -58,6 +58,36 @@ public class CheckSortCountries extends BaseTests {
             Collections.sort(sortedZonesList);
             ComparisonStringLists(unsortedZonesList, sortedZonesList);
 
+        }
+    }
+
+    @Test
+    public void CheckSortZones() {
+        TestLogon.logonAdmin();
+        wd.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+
+        ArrayList<String> unsortedCountriesList = new ArrayList<>();
+        ArrayList<String> sortedCountriesList = new ArrayList<>();
+
+        ArrayList<String> multiZoneCountry = new ArrayList<>();
+
+        List<WebElement> countries = wd.findElements(By.xpath("//table[@class='dataTable']//tr[@class='row']"));
+
+        System.out.println(countries.size());
+
+        for (int i = 1; i < countries.size(); i++) {
+            unsortedCountriesList.add(countries.get(i).findElement(By.xpath("//td[5]")).getText());
+            sortedCountriesList.add(countries.get(i).findElement(By.xpath("//td[5]")).getText());
+
+            System.out.println(countries.get(i).findElement(By.xpath("//td[5]")).getText());
+
+            try {
+                if (Integer.parseInt(countries.get(i).findElement(By.xpath("//td[7]")).getText()) > 0) {
+                    multiZoneCountry.add(countries.get(i).findElement(By.xpath("a")).getAttribute("href"));
+                }
+            } catch (ClassCastException ex) {
+                System.out.println("Неверные данные в поле - error");
+            }
         }
     }
 
