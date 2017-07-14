@@ -99,28 +99,27 @@ public class CheckSort extends BaseTests {
             }
         }
 
-        Collections.sort(sortedCountriesList);
-        ComparisonStringLists(unsortedCountriesList, sortedCountriesList);
+        for (int i = 0; i < multiZoneCountry.size(); i++) {
+            wd.get(multiZoneCountry.get(i));
 
-//        for (int i = 0; i < multiZoneCountry.size(); i++) {
-//            wd.get(multiZoneCountry.get(i));
-//
-//            ArrayList<String> unsortedZonesList = new ArrayList<>();
-//            ArrayList<String> sortedZonesList = new ArrayList<>();
-//
-//            List<WebElement> zones = wd.findElements(By.xpath("//table[@id='table-zones']//tr"));
-//
-//            for (WebElement zone : zones) {
-//                System.out.println(zone.findElement(By.xpath(".//td[3]")).getText());
-//
-//                unsortedZonesList.add(zone.findElement(By.xpath(".//td[3]")).getText());
-//                sortedZonesList.add(zone.findElement(By.xpath(".//td[3]")).getText());
-//            }
-//
-//            Collections.sort(sortedZonesList);
-//            ComparisonStringLists(unsortedZonesList, sortedZonesList);
-//
-//        }
+            ArrayList<String> unsortedZonesList = new ArrayList<>();
+            ArrayList<String> sortedZonesList = new ArrayList<>();
+
+            List<WebElement> zones = wd.findElements(By.xpath("//table[@id='table-zones']//tr"));
+
+            System.out.println(zones.size());
+
+            for (int ii = 1; ii < zones.size() - 1; ii++) {
+                System.out.println(zones.get(ii).findElement(By.xpath(".//td[3]/select/option[@selected='selected']")).getText());
+
+                unsortedZonesList.add(zones.get(ii).findElement(By.xpath(".//td[3]/select/option[@selected='selected']")).getText());
+                sortedZonesList.add(zones.get(ii).findElement(By.xpath(".//td[3]/select/option[@selected='selected']")).getText());
+            }
+
+            Collections.sort(sortedZonesList);
+            ComparisonStringLists(unsortedZonesList, sortedZonesList);
+
+        }
     }
 
     void ComparisonStringLists(ArrayList<String> unsortedList, ArrayList<String> sortedList) {
