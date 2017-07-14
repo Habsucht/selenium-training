@@ -31,8 +31,11 @@ public class CheckSort extends BaseTests {
             System.out.println(countries.get(i).findElement(By.xpath("//td[5]")).getText());
 
             try {
-                if (Integer.parseInt(countries.get(i).findElement(By.xpath("//td[7]")).getText()) > 0) {
-                    multiZoneCountry.add(countries.get(i).findElement(By.xpath("a")).getAttribute("href"));
+                String s = countries.get(i).findElement(By.xpath("//td[7]")).getText();
+                if (countries.get(i).findElement(By.xpath("//td[7]")).getText().length() != 0) {
+                    if (Integer.parseInt(countries.get(i).findElement(By.xpath("//td[7]")).getText()) > 0) {
+                        multiZoneCountry.add(countries.get(i).findElement(By.xpath("a")).getAttribute("href"));
+                    }
                 }
             } catch (ClassCastException ex) {
                 System.out.println("Неверные данные в поле - error");
