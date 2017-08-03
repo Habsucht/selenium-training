@@ -64,9 +64,5 @@ public class CheckRegistrationNewUser extends BaseTests {
         TestLogon.logonUserOnMainPage(newUser.getEmail(), newUser.getPassword());
     }
 
-    void inputData(String tagName, String data) {
-        wd.findElement(By.name(tagName)).click();
-        wd.findElement(By.name(tagName)).clear();
-        wd.findElement(By.name(tagName)).sendKeys(data);
-    }
+
 }

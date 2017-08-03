@@ -7,6 +7,7 @@ package ru.stqa.selenium_training.tests.ui;
 import org.junit.After;
 import org.junit.Before;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -53,5 +54,11 @@ public class BaseTests {
     @After
     public void tearDown() {
         wd.quit();
+    }
+
+    void inputData(String tagName, String data) {
+        wd.findElement(By.name(tagName)).click();
+        wd.findElement(By.name(tagName)).clear();
+        wd.findElement(By.name(tagName)).sendKeys(data);
     }
 }
