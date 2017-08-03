@@ -11,7 +11,7 @@ public class CheckLeftMenu extends BaseTests{
 
     @Test
     public void CheckLeftMenu1() {
-        TestLogon.logonAdmin();
+        TestLogon.logonUserOnAdminPage("admin", "admin");
 
         ArrayList<String> leftMenuList = new ArrayList<>();
         List<WebElement> leftMenu = wd.findElements(By.xpath("//ul[@id='box-apps-menu']/li"));

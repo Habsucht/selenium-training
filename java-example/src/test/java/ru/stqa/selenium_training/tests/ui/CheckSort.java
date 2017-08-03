@@ -12,7 +12,7 @@ public class CheckSort extends BaseTests {
 
     @Test
     public void CheckSortCountries() {
-        TestLogon.logonAdmin();
+        TestLogon.logonUserOnAdminPage("admin", "admin");
         wd.get("http://localhost/litecart/admin/?app=countries&doc=countries");
 
         ArrayList<String> unsortedCountriesList = new ArrayList<>();
@@ -70,7 +70,7 @@ public class CheckSort extends BaseTests {
 
     @Test
     public void CheckSortZones() {
-        TestLogon.logonAdmin();
+        TestLogon.logonUserOnAdminPage("admin", "admin");
         wd.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
 
         ArrayList<String> unsortedCountriesList = new ArrayList<>();
