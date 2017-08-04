@@ -48,7 +48,7 @@ public class BaseTests {
                 wd = new InternetExplorerDriver();
                 break;
         }
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
 
     @After
