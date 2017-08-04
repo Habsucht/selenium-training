@@ -24,7 +24,7 @@ public class BaseTests {
     @Before
     public void setUp() throws Exception {
         if (browser == null) {
-            browser = "FIREFOX";
+            browser = "CHROME";
         }
 
         switch (browser) {
